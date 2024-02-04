@@ -9,10 +9,32 @@ The probability of each team making the playoffs.
 
 
 ```{r}
+
+library(RCurl)
 library(readr)
+library(dplyr)
+library(plyr)
 data <- read.csv("https://raw.githubusercontent.com/Angelogallardo05/Assignment01/04b528e1d5327aeb112672e39a6eb3a75a3bd4a5/mlb_elo_latest.csv", header = TRUE, sep = ",")
 
-data
+data$playoff <- NULL
+
+
+
+head(data)
+
+
+#Rename column headers
+
+head(rename(data,c("date"="d","season"="s","neutral"="n","team1"="t1","team2"="t2")))
+
+Hwinprob  <- subset(data, elo_prob1 > .5 & team1 == "NYY" )
+Hwinprob
+summary(Hwinprob)
+
+
+Yankees <- subset(data, team1 == "NYY", select = c("date", "season", "team1", "elo1_pre", "rating1_pre", "rating2_pre"))
+Yankees
+
 ```
 
 
