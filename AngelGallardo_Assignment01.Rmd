@@ -1,0 +1,21 @@
+---
+title: "Angel Gallardo"
+output: html_document
+date: '2024-02-04'
+---
+
+This Data is about MLB predictions
+The probability of each team making the playoffs.
+
+
+```{r}
+library(readr)
+data <- read.csv("https://raw.githubusercontent.com/Angelogallardo05/Assignment01/04b528e1d5327aeb112672e39a6eb3a75a3bd4a5/mlb_elo_latest.csv", header = TRUE, sep = ",")
+
+data
+```
+
+
+
+## Findings and Recommendations
+I was successfully pulled in the data
